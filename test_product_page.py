@@ -73,7 +73,7 @@ class TestUserAddToBasketFromProductPage():
 
     @pytest.fixture(scope='function', autouse=True)
     def setup(self, browser):
-        link = 'http://selenium1py.pythonanywhere.com/ru/accounts/login/'
+        link = 'http://selenium1py.pythonanywhere.com/'
         page = LoginPage(browser, link)
         page.open()
         page.register_new_user(str(time.time()) + "@mail.com", 'qwern985ombg')
