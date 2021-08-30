@@ -4,6 +4,7 @@ import math
 from .locators import  BasePageLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import re
 
 
 class BasePage():
@@ -77,4 +78,24 @@ class BasePage():
         """ Проверяет, что пользователь залогинен """
         assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented," \
                                                                      " probably unauthorised user"
+
+    def click_element(self, how, what):
+        try:
+            self.browser.find_element(how, what).click()
+        except NoSuchElementException:
+            return False
+        return True
+
+    def get_text(self, how, what):
+        try:
+            return self.browser.find_element(how, what).text
+        except NoSuchElementException:
+            return None
+
+    def get_num(self, how, what):
+        try:
+            numtxt = self.browser.find_element(how, what).text.replace(',', '.')
+            return float(re.findall(r'\d+.\d+', numtxt)[0])
+        except NoSuchElementException:
+            return None
 

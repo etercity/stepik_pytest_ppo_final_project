@@ -22,12 +22,19 @@ class LoginPageLocators():
 
 
 class ProductPageLocators():
-    ADD_BUTTON = (By.CSS_SELECTOR, 'button.btn-add-to-basket')
-    PRUDUCT_NAME = (By.CSS_SELECTOR, '.product_main > h1')
-    ADDED_PRODUCT_NAME = (By.CSS_SELECTOR, '.alertinner > strong')
-    PRICE = (By.CSS_SELECTOR, '.product_main > p.price_color')
+    # ADD_BTN = (By.CSS_SELECTOR, "button.btn-add-to-basket")
+    PRODUCT_NAME = (By.CSS_SELECTOR, ".product_main h1")
+    ADD_PRODUCT_NAME = (By.XPATH, "//*[@id='messages']/div[1]/div/strong")
+    PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main p")
+    SUM_BASKET = (By.CSS_SELECTOR, ".basket-mini.pull-right.hidden-xs")
     ADDED_PRODUCT_PRICE = (By.CSS_SELECTOR, '.alertinner > p > strong')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, '#messages > div.alert-success')
+
+    BTN_BASKET = (By.CSS_SELECTOR, 'button.btn-add-to-basket')
+    PRICE = (By.CSS_SELECTOR, '.product_main>.price_color')
+    PRICE_MESSAGE = (By.CSS_SELECTOR, '.alertinner>p>strong')
+    PROD_MESSAGE = (By.CSS_SELECTOR, '.alertinner>strong:nth-child(1)')
+    PROD_NAME = (By.CSS_SELECTOR, '.product_main>h1')
 
 
 class BasketPageLocators():
